@@ -1,1 +1,6 @@
-name, date, description
+Evan Canull, 1/30/2015
+
+I created a buffer for each shape. The frist shape loads on start up.
+Then using the onclick command to navagate through the other shapes.
+Cliking would excuate a function the would update the buffer and incrementat on a counter
+till it reached 3 to loop back to thr first shape.
