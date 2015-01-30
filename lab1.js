@@ -4,7 +4,7 @@ Evan Canull 1/30/15
 var gl;
 var points;    
 var i= 0;
-var vPos1 ,vPos2, vPos3;
+var pos1 ,pos2, pos3;
 var buff1, buff2 ,buff3;
 window.onload = function init()
 {
@@ -41,49 +41,48 @@ window.onload = function init()
     gl.bufferData( gl.ARRAY_BUFFER, flatten(sq), gl.STATIC_DRAW );
 	
     // Associate our shader variables with our data buffer
-	vPos1 = gl.getAttribLocation( program, "vPosition" );
-    gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( vPos1 );
+	pos1 = gl.getAttribLocation( program, "vPosition" );
+    gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( pos1 );
 	
-	vPos2 = gl.getAttribLocation( program, "vPosition" );
-    gl.vertexAttribPointer( vPos2, 2, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( vPos2 );
+	pos2 = gl.getAttribLocation( program, "vPosition" );
+    gl.vertexAttribPointer( pos2, 2, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( pos2 );
 	
-	vPos3 = gl.getAttribLocation( program, "vPosition" );
-    gl.vertexAttribPointer( vPos3, 2, gl.FLOAT, false, 0, 0 );
-    gl.enableVertexAttribArray( vPos3 );
+	pos3 = gl.getAttribLocation( program, "vPosition" );
+    gl.vertexAttribPointer( pos3, 2, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( pos3 );
 
     render();
-	canvas.onmousedown = function(ev) {draw()};
+	canvas.onmousedown = function(ev) {display()};
 };
 
 function render(){
     gl.clear( gl.COLOR_BUFFER_BIT );
-
 	gl.bindBuffer( gl.ARRAY_BUFFER, buff1 );
-    gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
+    gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
 	gl.drawArrays( gl.TRIANGLE_FAN, 0, 5 );
 }
 
-function draw(){
+function display(){
 	if(i== 0){
 		gl.bindBuffer( gl.ARRAY_BUFFER, buff2 );
-   		gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
+   		gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
 		gl.drawArrays( gl.TRIANGLE_FAN, 0, 3 );
 	}
 	if(i== 1){
 		gl.bindBuffer( gl.ARRAY_BUFFER, buff3 );
-    	gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
+    	gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
 		gl.drawArrays( gl.TRIANGLE_FAN, 0, 4 );
 	}
 	if(i== 2){
 		gl.bindBuffer( gl.ARRAY_BUFFER, buff1 );
-    	gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
+    	gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
 		gl.drawArrays( gl.TRIANGLE_FAN, 0, 5 );
 	}
 	if(i== 3){
 		gl.bindBuffer( gl.ARRAY_BUFFER, buff2 );
-   		gl.vertexAttribPointer( vPos1, 2, gl.FLOAT, false, 0, 0 );
+   		gl.vertexAttribPointer( pos1, 2, gl.FLOAT, false, 0, 0 );
 		gl.drawArrays( gl.TRIANGLE_FAN, 0, 3 );
 		i = 0;
 	}
